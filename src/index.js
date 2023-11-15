@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { ConfigProvider } from 'antd';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const APP_THEME = {
+    colorPrimary:"#001529", //'#08c475', //'#00b96b',    background-color: #rgb(63, 63, 63);
+    
+    borderRadius: 10,
+    colorBgContainer:'#001529',//--color-primary-200: #5e43f3;--color-surface-100: #121212;
+
+}
+
+root.render(
+    <BrowserRouter>
+        <ConfigProvider
+            theme={{
+                token: APP_THEME
+            }}
+        >
+            <App />
+        </ConfigProvider>
+    </BrowserRouter>
+);
